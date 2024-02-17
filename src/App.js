@@ -4,6 +4,7 @@ import Read from './Components/Read';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { Create } from './Components/Create';
+import Update from './Components/Update';
 function App() {
   return (
 <>
@@ -14,6 +15,7 @@ function App() {
     <Routes>
     <Route path="/" element={<Read />}/>
     <Route path="/create" element={<Create />}/>
+    <Route path="/update" element={<Update/>}/>
     </Routes>
     </BrowserRouter>
     </>

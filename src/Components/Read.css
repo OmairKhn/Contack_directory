@@ -1,0 +1,119 @@
+
+.header{
+    text-align: center;
+    background-color: #EFEFEF;
+    padding:10px;
+    Height:80px;
+    width:100%;
+  
+    }
+   
+    .view {
+      width: 480px;
+      height: 700px;
+      position: relative;
+      left: 38%;
+      right: 50%;
+      padding-top:0px;
+      margin-top: 22px;
+      overflow: auto; /* Enable scrolling */
+  }
+  
+  .view::-webkit-scrollbar {
+      width: 10px; /* Width of the scrollbar */
+    
+      
+  }
+  
+  .view::-webkit-scrollbar-thumb {
+      background-color: #c7c7c7; /* Color of the scrollbar thumb */
+  }
+  
+  .view::-webkit-scrollbar-track {
+      background-color: #f1f1f1; /* Color of the scrollbar track */
+      
+  }
+  
+  
+    .card{
+      background-color:#FAFAFA;
+    display:flex;
+      gap:10px;
+      width:420px;
+      height:64px;
+      padding:8px 16px 8px 16px;
+      padding-top:20px;
+    gap:10px;
+    margin-top:10px
+    }
+.card:hover{
+  
+ 
+  .btn_delete{
+    display:block;
+  }
+  .btn_edit{
+    display:block;
+    
+  }
+  
+  
+  box-shadow: 2px 2px 5px  lightblue;
+
+}
+
+
+  .info{
+    margin-right:auto;
+  }
+    .info p{
+    margin:0px;
+    }
+  
+   .roundimage{
+  border-radius:50%;
+    
+    }
+  
+    .btn{
+      border-radius:40px;
+     width:72px;
+     height:72px;
+     margin-left:95%;
+   color:white;
+   font-size:32px;
+      padding:24px;
+      gap:10px;
+      background-color: #4B50BF;
+      margin_top:20px;
+      cursor:poiter;
+     
+
+    }
+   
+    .btn_delete{
+      border:none;
+      height:32px;
+    display:none;
+     background-color:red;
+     color:white;
+     font-size:large;
+     border-radius:5px;
+     cursor:pointer;
+    
+    }
+    
+.button_delete{
+    margin-left:10px
+}
+ .btn_edit{
+background-color:skyblue;
+border-radius:4px;
+padding:6px 17px 6px 19px;
+color:white;
+border:none;
+ cursor:pointer;
+ display:none;
+ 
+ }
+

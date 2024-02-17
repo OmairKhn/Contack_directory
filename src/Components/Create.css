@@ -1,0 +1,55 @@
+.Create{
+    width:440px;
+    height:403px;
+    margin-top:20px;
+    margin-left:40%;
+    padding:10px;
+
+}
+
+.input_Name{
+    background-color:#FAFAFA;
+    height:62px;
+    width:420px;
+    padding:8px 16px 8px 16px;
+    gap:10px;
+    margin-top:10px;
+    font-size:large;
+    align-item:center;
+    border-Radius:8px;
+
+}
+.input_Name input{
+    padding:10px 10px 10px 10px;
+    border:none;
+    background-color:#FAFAFA;
+}
+
+.btn_save{
+width:450px;
+height:62px;
+background-color:#4B50BF;
+border-radius:8px;
+color:white;
+font-size:16px;
+margin-top:10px;
+cursor:pointer
+}
+.btn_save:disabled {
+    background-color: lightblue;
+}
+
+.required{
+ color:red;
+}
+.error_message{
+    color:red;
+}
+.input_image{
+    
+    margin-bottom:0px;
+   
+}
+.image_div{
+    display:flex;
+}

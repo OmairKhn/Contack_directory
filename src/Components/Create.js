@@ -35,7 +35,6 @@ export const Create = () => {
   //     setimage(storedImage);
   //   }
   
-  // }, []);
   
 
 

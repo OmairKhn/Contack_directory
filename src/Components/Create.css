@@ -1,8 +1,95 @@
+
+.main_div{
+    height:600px;
+    width:100%;
+    display:flex;
+justify-content:center;
+}
+
+
 .Create{
+    margin-top:10px;
+    padding:10px;
+    width:440px;
+    height:550px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.input_Name{
+    background-color:#FAFAFA;
+    height:62px;
+    width:420px;
+    padding:8px 16px 8px 16px;
+    box-sizing:border-box;
+    font-size:large;
+    border-Radius:8px;
+
+}
+.required{
+    color:red;
+   }
+.input_Name input{
+    border:none;
+    background-color:#FAFAFA;
+    Font-size:large;
+    box-sizing:border-box;
+    outline:none;
+    
+}
+.btn_save{
+    box-sizing:border-box;
+    width:420px;
+    height:62px;
+    background-color:#4B50BF;
+    border-radius:8px;
+    color:white;
+    font-size:16px;
+    margin-top:10px;
+    cursor:pointer
+    }
+    .btn_save:disabled {
+        background-color: lightblue;
+    }
+    .error_message{
+        color:red;
+    }
+    .input_image{
+        border-radius:6px;
+        margin-bottom:0px;
+       
+    }
+    .image_div{
+        margin-top:px;
+        display:flex;
+        
+    } 
+    @media screen and (max-width: 680px) {
+        
+         .header{
+           width:107%;
+         }
+         .main_div{
+            padding-left:35px;
+         }
+         .input_Name{
+            width: 400px;
+
+         }
+         .btn_save{
+            width:400px;
+         }
+       }
+   
+
+/* .Create{
     width:440px;
     height:403px;
     margin-top:20px;
-    margin-left:40%;
+margin-left:auto;
+margin-right:auto;
     padding:10px;
 
 }
@@ -17,12 +104,14 @@
     font-size:large;
     align-item:center;
     border-Radius:8px;
-
+   outline:none;
 }
 .input_Name input{
     padding:10px 10px 10px 10px;
     border:none;
     background-color:#FAFAFA;
+    Font-size:large;
+    
 }
 
 .btn_save{
@@ -46,10 +135,12 @@ cursor:pointer
     color:red;
 }
 .input_image{
-    
+    border-radius:6px;
     margin-bottom:0px;
    
 }
 .image_div{
+    margin-top:10px;
     display:flex;
-}
+    
+} */

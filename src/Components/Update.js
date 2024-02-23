@@ -3,48 +3,63 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './Create.css';
 const Update = ()=> {
-    const [id,setid] = useState("")
-    const [F_name, Set_FName] = useState("");
-    const [L_Name, Set_LName] = useState("");
-    const [Phone, SetPhone] = useState("");
-    const [Company, SetCompany] = useState("");
-    const [error, Seterror] = useState("");
-    const history = useNavigate();
-    const [image, setimage] = useState("");
+  const [id,setid]=useState("")
+  const [F_name, Set_FName] = useState("");
+  const [L_Name, Set_LName] = useState("");
+  const [Phone, SetPhone] = useState("");
+  const [Company, SetCompany] = useState("");
+  const [image, setimage] = useState("");
+  const [error, Seterror] = useState("");
 
-  
-    useEffect(() => {
-        setid(localStorage.getItem("id") || "");
-        Set_FName(localStorage.getItem("F_name1") || "");
-        Set_LName(localStorage.getItem("L_Name") || "");
-        SetPhone(localStorage.getItem("Phone") || "");
-        SetCompany(localStorage.getItem("Company") || "");
-        setimage(localStorage.getItem("image") || "");
-      }, []);
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-           await axios.put(`https://65b7855946324d531d54d167.mockapi.io/crud-youtube/${id}`,{
-             F_name:F_name,
-             L_Name:L_Name,
-             Phone:Phone,
-             Company:Company,
-             image:image
-           } )
-          history("/")
-         } 
-         const ConvertToBase64 = (e) => {
-            const file = e.target.files[0];
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = () => {
-              setimage(reader.result); // Store the base64 image string
-            };
-            reader.onerror = (error) => {
-              console.error('Error converting image to base64:', error);
-            };
+  const history = useNavigate();
+
+
+  useEffect(() => {
+      setid(localStorage.getItem("id") || "");
+      Set_FName(localStorage.getItem("F_name1") || "");
+      Set_LName(localStorage.getItem("L_Name") || "");
+      SetPhone(localStorage.getItem("Phone") || "");
+      SetCompany(localStorage.getItem("Company") || "");
+      setimage(localStorage.getItem("image") || "");
+    }, []);
+  const handleSubmit = async (e) => {
+    
+    if (!F_name&&!L_Name ) {
+      Seterror("YOu must have Enter First Name and phone number");
+      return; // Prevent further execution if there are errors
+    }
+    else if (!F_name ) {
+      Seterror("Please Enter your name");
+      return; // Prevent further execution if there are errors
+    }
+    else if(!Phone){
+Seterror("Please Enter your Phone number");
+return;
+    }
+      e.preventDefault();
+         await axios.put(`https://65b7855946324d531d54d167.mockapi.io/crud-youtube/${id}`,{
+           F_name:F_name,
+           L_Name:L_Name,
+           Phone:Phone,
+           Company:Company,
+           image:image
+         } )
+        history("/")
+       } 
+       const ConvertToBase64 = (e) => {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => {
+            setimage(reader.result); // Store the base64 image string
           };
-        
+          reader.onerror = (error) => {
+            console.error('Error converting image to base64:', error);
+          };
+        };
   return (
+    <div className='main_div'>
+
     <div className="Create">
     <Link to='/'>New Contact</Link>
     <div className='input_Name'>
@@ -103,6 +118,7 @@ const Update = ()=> {
     </button>
             
     <p className='error_message'>{error}</p>
+  </div>
   </div>
   )
 }

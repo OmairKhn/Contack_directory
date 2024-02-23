@@ -12,35 +12,20 @@ export const Create = () => {
   const history = useNavigate();
   const [image, setimage] = useState("");
 
-  // useEffect(() => {
-  //   const storedFName = localStorage.getItem("F_name1");
-  //   const storedLName = localStorage.getItem("L_Name");
-  //   const storedPhone = localStorage.getItem("Phone");
-  //   const storedCompany = localStorage.getItem("Company");
-  //   const storedImage = localStorage.getItem("image");
-  
-  //   if (storedFName) {
-  //     Set_FName(storedFName);
-  //   }
-  //   if (storedLName) {
-  //     Set_LName(storedLName);
-  //   }
-  //   if (storedPhone) {
-  //     SetPhone(storedPhone);
-  //   }
-  //   if (storedCompany) {
-  //     SetCompany(storedCompany);
-  //   }
-  //   if (storedImage) {
-  //     setimage(storedImage);
-  //   }
-  
-  // }, []);
-  
-
-
-
   const handleSubmit = async (e) => {
+    if (!F_name&&!L_Name ) {
+      Seterror("YOu must have Enter First Name and phone number");
+      return; // Prevent further execution if there are errors
+    }
+    else if (!F_name ) {
+      Seterror("Please Enter your name");
+      return; // Prevent further execution if there are errors
+    }
+    else if(!Phone){
+Seterror("Please Enter your Phone number");
+return;
+    }
+   
  e.preventDefault();
     await axios.post('https://65b7855946324d531d54d167.mockapi.io/crud-youtube',{
       F_name:F_name,
@@ -58,14 +43,15 @@ export const Create = () => {
     reader.onload = () => {
       setimage(reader.result); // Store the base64 image string
     };
-    reader.onerror = (error) => {
-      console.error('Error converting image to base64:', error);
-    };
+   
   };
 
   return (
-    <div className="Create">
-      <Link to='/'>New Contact</Link>
+    <div className='main_div'>
+
+<div className="Create">
+      New Contact
+
       <div className='input_Name'>
         <label>First Name: <span className='required'>*</span></label><br/>
         <input
@@ -111,7 +97,11 @@ export const Create = () => {
       </div>
      <div className='image_div'>
       <input type='file' onChange={ConvertToBase64} ></input>
-      <img className='input_image' src={image} height={"40px"} width={"60px"}  />
+      {image ? (
+  <img src={image} alt="Contact Icon" className='roundimage' width="44px" height="44px" />
+) : (
+  <img src="/contact_png.png" alt="Contact Icon" className='roundimage' width="44px" height="44px" />
+)} 
       </div>
       <button
         disabled={!F_name && !L_Name && !Phone && !Company}
@@ -123,6 +113,9 @@ export const Create = () => {
               
       <p className='error_message'>{error}</p>
     </div>
+ 
+    </div>
+    
   );
 };
 

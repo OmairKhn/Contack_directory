@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import './Read.css';
 import { Link } from 'react-router-dom';
 
-
-const Read = () => {
+ export const Read = () => {
   const [data,setData] = useState([]);
-  
+  const [searchQuery,setSearchQuery]=useState("");
+
   const getData = async () => {
   const res =await axios.get('https://65b7855946324d531d54d167.mockapi.io/crud-youtube')
   const sortedData = res.data.sort((a, b) => b.id - a.id);
@@ -30,34 +30,53 @@ useEffect(() => {
   getData();
 },[]);
 
-
+const filteredData = data.filter(item => {
+  const fullName = `${item.F_name} ${item.L_Name}`.toLowerCase();
+  return fullName.includes(searchQuery.toLowerCase());
+});
   return (
-    <div>
+  <div>
             <div className="App">
-        <div className='center-screen view'>
-          <h3>Contacts</h3>
-              
+            
+        <div className='main_view'>
+          <div className='card_header'>
+          <input className='search_input' type='text'      placeholder='Search by Name'
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}/>
+          <div className='ad_contect'>
+          <Link to="/create"><button className='btn'>Add</button></Link>
+          </div>
+        </div>
+        <div className=' view'>
+        
+
+
         {
-    data?.map((eachdata) => {
+    filteredData?.map((eachdata) => {
         return(
           <div className='card' key={eachdata.id}> {/*contact card container*/}
                <div className='image'>
-                     <img className='roundimage' src={eachdata.image} width="44px" height="44px"/>
-               </div>
+{eachdata.image ? (
+  <img src={eachdata.image} alt="Contact Icon" className='roundimage' width="44px" height="44px" />
+) : (
+  <img src="/contact_png.png" alt="Contact Icon" className='roundimage' width="44px" height="44px" />
+)}               </div>
                     {console.log(eachdata)}
                      <div className='info'>
-                         <p>{eachdata.F_name} {eachdata.L_Name}</p> 
-                         <p>{eachdata.Phone}</p>
+                         <p className='First_Name'>{eachdata.F_name} {eachdata.L_Name}</p> 
+                         <p className='Phone_no'>{eachdata.Phone}</p>
        
                     </div>
                       <div className='button_delete'>
-                      <div>
+                      <div className='btn_s'>
                         <Link to='/update'>
 
                          <button className='btn_edit'   onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image)}>Edit</button>
                          </Link>
                       </div>
                           <button className='btn_delete' onClick={() => delete_card(eachdata.id)} >Delete</button>
+                       <Link to={"/detail"} ><button className='btn_View' onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image)}  >View</button></Link>
+
                     </div>
           </div>
           /*
@@ -70,15 +89,13 @@ useEffect(() => {
         )
     })
 }
-
        
       </div>
-      <Link to="/create"><button className='btn'>+</button></Link>
     </div>
     </div>
+   </div>
   )
 }
 
-export default Read
 
 

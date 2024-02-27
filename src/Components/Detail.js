@@ -6,6 +6,11 @@ const Detail = () => {
     const [Phone, SetPhone] = useState("");
     const [Company, SetCompany] = useState("");
     const [image, setimage] = useState("");
+    const [Website,SetWebsite] = useState("");
+    const [Home,SetHome] = useState("");
+    const [Email,SetEmail] = useState("");
+    const [Dob,SetDob] = useState("");
+    const [Notes,SetNotes] = useState("");
 
     useEffect(() => {
         Set_FName(localStorage.getItem("F_name1") || "");
@@ -13,7 +18,14 @@ const Detail = () => {
         SetPhone(localStorage.getItem("Phone") || "");
         SetCompany(localStorage.getItem("Company") || "");
         setimage(localStorage.getItem("image") || "");
+        SetWebsite(localStorage.getItem("Website") || "");
+        SetHome(localStorage.getItem("Home") || "");
+        SetDob(localStorage.getItem("Dob") || "");
+        SetEmail(localStorage.getItem("Email") || "");
+        SetNotes(localStorage.getItem("Notes") || "");
       }, []);
+
+
   return (
        <div className='view_page'>
         <div className='main_view1'>
@@ -22,7 +34,7 @@ const Detail = () => {
             {image ? (
   <img src={image} alt="Contact Icon" className='roundimage1' width="90%" height="100%" />
 ) : (
-  <img src="/contact_png.png" alt="Contact Icon" className='roundimage' width="44px" height="44px" />
+  <img src="/contact_png.png" alt="Contact Icon" className='roundimage' width="90%" height="100%" />
 )}             </div>
             <div className='div1_2'>
                 <h2>{F_name} {L_Name}</h2>
@@ -34,11 +46,11 @@ const Detail = () => {
                 <table>
                 
                 <tr> <th>Mobile </th><td>{Phone}</td></tr>
-                <tr><th>Website</th><td>N/A</td> </tr>
-                <tr> <th>Home </th><td>N/A</td></tr>
-                <tr><th>Email</th><td>N/A</td></tr>
-                <tr><th>D.O.B</th><td>N/A</td></tr>
-                <tr><th>Notes</th><td>N/A</td></tr>
+                <tr><th>Website</th><td>{Website ? Website : 'N/A'}</td> </tr>
+                <tr> <th>Home </th><td>{Home ? Home :'N/A'}</td></tr>
+                <tr><th>Email</th><td>{Email ? Email : 'N/A'}</td></tr>
+                <tr><th>D.O.B</th><td>{Dob ? Dob : 'N/A'}</td></tr>
+                <tr><th>Notes</th><td>{Notes ? Notes : 'N/A'}</td></tr>
 
                 </table>
            {/* <h3>phone #  <span>   {Phone}</span> </h3>

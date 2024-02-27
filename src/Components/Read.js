@@ -2,6 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Read.css';
 import { Link } from 'react-router-dom';
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
+import { GrView } from "react-icons/gr";
 
  export const Read = () => {
   const [data,setData] = useState([]);
@@ -18,13 +21,18 @@ const delete_card = async (id) =>{
  .delete(`https://65b7855946324d531d54d167.mockapi.io/crud-youtube/${id}`)
  getData();
 }
-const setlocalstorage = (id,F_name,L_Name,Phone,Company,image) => {
+const setlocalstorage = (id,F_name,L_Name,Phone,Company,image,Website, Home, Dob, Email, Notes) => {
   localStorage.setItem("id" , id);
   localStorage.setItem("F_name1" , F_name);
   localStorage.setItem("L_Name" , L_Name);
   localStorage.setItem("Phone" , Phone)
   localStorage.setItem("Company" , Company);
   localStorage.setItem("image" , image);
+  localStorage.setItem("Website", Website);
+  localStorage.setItem("Home", Home);
+  localStorage.setItem("Dob", Dob);
+  localStorage.setItem("Email", Email);
+  localStorage.setItem("Notes", Notes);
 };
 useEffect(() => {
   getData();
@@ -71,11 +79,11 @@ const filteredData = data.filter(item => {
                       <div className='btn_s'>
                         <Link to='/update'>
 
-                         <button className='btn_edit'   onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image)}>Edit</button>
+                         <button className='btn_edit'   onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image,eachdata.Website,eachdata.Home,eachdata.Dob,eachdata.Email,eachdata.Notes)}><FaEdit/></button>
                          </Link>
                       </div>
-                          <button className='btn_delete' onClick={() => delete_card(eachdata.id)} >Delete</button>
-                       <Link to={"/detail"} ><button className='btn_View' onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image)}  >View</button></Link>
+                          <button className='btn_delete' onClick={() => delete_card(eachdata.id)} ><FaRegTrashAlt/></button>
+                       <Link to={"/detail"} ><button className='btn_View' onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image,eachdata.Website,eachdata.Home,eachdata.Email,eachdata.Dob,eachdata.Notes)}  ><GrView/></button></Link>
 
                     </div>
           </div>

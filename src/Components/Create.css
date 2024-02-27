@@ -4,14 +4,34 @@
     width:100%;
     display:flex;
 justify-content:center;
+
+}
+.input_Name{
+margin-top:7px;
+}
+.cards_div{
+    overflow:auto;
+    height:500px;
+}
+.cards_div::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+  
+    
 }
 
+.cards_div::-webkit-scrollbar-thumb {
+    background-color: #c7c7c7; /* Color of the scrollbar thumb */
+}
 
+.cards_div::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color of the scrollbar track */
+    
+}
 .Create{
     margin-top:10px;
     padding:10px;
     width:440px;
-    height:550px;
+    height:785px;
     box-sizing:border-box;
     display:flex;
     flex-direction:column;
@@ -21,13 +41,40 @@ justify-content:center;
 .input_Name{
     background-color:#FAFAFA;
     height:62px;
-    width:420px;
+    width:405px;
     padding:8px 16px 8px 16px;
     box-sizing:border-box;
     font-size:large;
     border-Radius:8px;
 
 }
+.F_Name{
+    background-color:#FAFAFA;
+    height:62px;
+    width:49%;
+    box-sizing:border-box;
+    padding:8px 16px 8px 16px;
+    border-Radius:8px;
+    font-size:large;
+
+}
+.F_Name input{
+    border:none;
+    background-color:#FAFAFA;
+    Font-size:large;
+    box-sizing:border-box;
+    outline:none;
+    width:100%; 
+}
+.Full_Name{
+    display:flex;
+    justify-content:space-between;
+    height:62px;
+
+
+
+}
+
 .required{
     color:red;
    }
@@ -47,7 +94,6 @@ justify-content:center;
     border-radius:8px;
     color:white;
     font-size:16px;
-    margin-top:10px;
     cursor:pointer
     }
     .btn_save:disabled {
@@ -81,9 +127,23 @@ justify-content:center;
          .btn_save{
             width:400px;
          }
+         .input_Name{
+            width:385px;
+         }
        }
-   
-
+   .input_image{
+    border-radius:15px;
+   }
+.input_Name1{
+    height:200px;
+display:flex;
+flex-direction:column;
+}
+.inp_1{
+    height:80%;
+    font-size:18px;
+    font-weight:400;
+}
 /* .Create{
     width:440px;
     height:403px;

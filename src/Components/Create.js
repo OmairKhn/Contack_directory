@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { IoMdArrowBack } from "react-icons/io";
 import './Create.css';
 
 export const Create = () => {
@@ -8,6 +9,12 @@ export const Create = () => {
   const [L_Name, Set_LName] = useState("");
   const [Phone, SetPhone] = useState("");
   const [Company, SetCompany] = useState("");
+  const [Website, SetWebsite] = useState("");
+  const [Home, SetHome] = useState("");
+  const [Dob, SetDob] = useState("");
+  const [Email, SetEmail] = useState("");
+  const [Notes, SetNotes] = useState("");
+
   const [error, Seterror] = useState("");
   const history = useNavigate();
   const [image, setimage] = useState("");
@@ -32,7 +39,13 @@ return;
       L_Name:L_Name,
       Phone:Phone,
       Company:Company,
-      image:image
+      image:image,
+      Website:Website,
+      Home:Home,
+      Dob:Dob,
+      Email:Email,
+      Notes:Notes
+
     } );
    history("/")
   };
@@ -50,12 +63,23 @@ return;
     <div className='main_div'>
 
 <div className="Create">
-      New Contact
-
-      <div className='input_Name'>
+      <div style={{display:'flex', alignItems:'center' , height:'40px'}}>
+        <div style={{width:'30%', paddingleft:'10px' }}>
+          <Link to='/'>
+        <IoMdArrowBack style={{height:'30px',width:'20px' ,cursor:'pointer'}} />
+        </Link>
+        </div>
+        <div>
+          <h2>New Contact</h2>
+        </div>
+      </div>
+     <div className='cards_div'>
+      <div className=' Full_Name' >
+        <div className='F_Name' >
         <label>First Name: <span className='required'>*</span></label><br/>
         <input
-          style={{ border: !F_name && error ? '1px solid red' : 'none' }}
+        
+          style={{ border: !F_name && error ? '1px solid red' : 'none'  }}
           className='inp'
           type='text'
           placeholder='Adnan'
@@ -63,23 +87,26 @@ return;
           onChange={(e) => Set_FName(e.target.value)}
           required
         />
-      </div>
-      <div className='input_Name'>
-        <label>Last Name:</label><br/>
+        </div>
+        <div style={{width:'48%' ,marginRight:'5px'}} className='F_Name' >
+             <label>Last Name:</label><br/>
         <input
+       
           className='inp'
           type='text'
           placeholder='khan'
           value={L_Name}
           onChange={(e) => Set_LName(e.target.value)}
         />
+        </div>
       </div>
+    
       <div className='input_Name'>
         <label>Phone:<span className='required'>*</span></label><br/>
         <input
-          style={{ border: !Phone && error ? '1px solid red' : 'none' }}
+          style={{ border: !Phone && error ? '1px solid red' : 'none'  }}
           className='inp'
-          type='number'
+          type='numeric'
           placeholder='+92 342634634'
           value={Phone}
           onChange={(e) => SetPhone(e.target.value)}
@@ -94,6 +121,60 @@ return;
           value={Company}
           onChange={(e) => SetCompany(e.target.value)}
         />
+      </div>
+      <div className='input_Name'>
+        <label>D.O.B:</label><br/>
+        <input
+          className='inp'
+          type='date'
+          placeholder=''
+          value={Dob}
+          onChange={(e) => SetDob(e.target.value)}
+        />
+      </div>
+      <div className='input_Name'>
+        <label>Adress:</label><br/>
+        <input
+          className='inp'
+          type='text'
+          placeholder='Adress'
+          value={Home}
+          onChange={(e) => SetHome(e.target.value)}
+        />
+      </div>
+      <div className='input_Name'>
+        <label>Email:</label><br/>
+        <input
+          className='inp'
+          type='Email'
+          placeholder='adnankhan233@gmail.com'
+          value={Email}
+          onChange={(e) => SetEmail(e.target.value)}
+        />
+      </div>
+      <div className='input_Name'>
+        <label>Website:</label><br/>
+        <input
+          className='inp'
+          type='text'
+          placeholder='www.github.com'
+          value={Website}
+          onChange={(e) => SetWebsite(e.target.value)}
+        />
+      </div>
+   
+   
+      <div className='input_Name input_Name1'>
+        <label>Notes:</label>
+        <textarea
+        style={{width:'100%'}}
+          className='inp_1'
+          type='message'
+          placeholder='Message'
+          value={Notes}
+          onChange={(e) => SetNotes(e.target.value)}
+        />
+      </div>
       </div>
      <div className='image_div'>
       <input type='file' onChange={ConvertToBase64} ></input>

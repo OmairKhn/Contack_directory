@@ -75,7 +75,7 @@ justify-content:center;
         padding-left:25px;
       }
       .card{
-        width:390px;
+        width:390px;        
       }
       .d{
         height:40px;
@@ -88,6 +88,8 @@ justify-content:center;
         padding-left:14px;
         height:55px;
       }
+      .btn_delete,.btn_edit,.btn_View{
+        display: block !important;      }
     }
 
 
@@ -99,7 +101,6 @@ justify-content:center;
   }
   .btn_edit{
     display:block;
-    
   }
 
   .btn_View{
@@ -173,7 +174,8 @@ justify-content:center;
      font-size:large;
      border-radius:5px;
      cursor:pointer;
-     padding:0px 14px 0px 14px;
+
+
      margin-bottom:2px;
      display:none;
     }

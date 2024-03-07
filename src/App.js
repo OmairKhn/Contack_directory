@@ -6,11 +6,12 @@ import { Nav } from "./Components/nav";
 import { Create } from "./Components/Create";
 import Detail from "./Components/Detail";
 import Update from "./Components/Update";
+import { HashRouter } from "react-router-dom";
 function App() {
   return (
     <div className="main_page">
       
-      <BrowserRouter>
+      <HashRouter >
         <Nav />
         <Routes>
           <Route path="/" element={<Read />} />
@@ -18,7 +19,7 @@ function App() {
           <Route path="/update" element={<Update />} />
            <Route path="/detail" element={<Detail/>} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

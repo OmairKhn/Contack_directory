@@ -2,11 +2,11 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import './Read.css';
 import { Link } from 'react-router-dom';
-import { FaRegTrashAlt } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
-import { GrView } from "react-icons/gr";
-
- export const Read = () => {
+import EditNoteIcon from '@mui/icons-material/EditNote';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline'; 
+export const Read = () => {
   const [data,setData] = useState([]);
   const [searchQuery,setSearchQuery]=useState("");
 
@@ -67,7 +67,7 @@ const filteredData = data.filter(item => {
 {eachdata.image ? (
   <img src={eachdata.image} alt="Contact Icon" className='roundimage' width="44px" height="44px" />
 ) : (
-  <img src="/contact_png.png" alt="Contact Icon" className='roundimage' width="44px" height="44px" />
+<img src={process.env.PUBLIC_URL + "/contact_png.png"} alt="" className="roundimage" width="44px" height="44px" />
 )}               </div>
                     {console.log(eachdata)}
                      <div className='info'>
@@ -79,11 +79,11 @@ const filteredData = data.filter(item => {
                       <div className='btn_s'>
                         <Link to='/update'>
 
-                         <button className='btn_edit'   onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image,eachdata.Website,eachdata.Home,eachdata.Dob,eachdata.Email,eachdata.Notes)}><FaEdit/></button>
+                         <button className='btn_edit'   onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image,eachdata.Website,eachdata.Home,eachdata.Dob,eachdata.Email,eachdata.Notes)}><EditNoteIcon/></button>
                          </Link>
                       </div>
-                          <button className='btn_delete' onClick={() => delete_card(eachdata.id)} ><FaRegTrashAlt/></button>
-                       <Link to={"/detail"} ><button className='btn_View' onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image,eachdata.Website,eachdata.Home,eachdata.Email,eachdata.Dob,eachdata.Notes)}  ><GrView/></button></Link>
+                          <button className='btn_delete' onClick={() => delete_card(eachdata.id)} ><DeleteOutlineIcon/></button>
+                       <Link to={"/detail"} ><button className='btn_View' onClick={() =>setlocalstorage(eachdata.id,eachdata.F_name,eachdata.L_Name,eachdata.Phone,eachdata.Company,eachdata.image,eachdata.Website,eachdata.Home,eachdata.Email,eachdata.Dob,eachdata.Notes)}  ><VisibilityIcon/></button></Link>
 
                     </div>
           </div>

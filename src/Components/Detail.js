@@ -34,7 +34,7 @@ const Detail = () => {
             {image ? (
   <img src={image} alt="Contact Icon" className='roundimage1' width="90%" height="100%" />
 ) : (
-  <img src="/contact_png.png" alt="Contact Icon" className='roundimage' width="90%" height="100%" />
+  <img src={process.env.PUBLIC_URL + "/contact_png.png"}  alt="Contact Icon" className='roundimage' width="90%" height="100%" />
 )}             </div>
             <div className='div1_2'>
                 <h2>{F_name} {L_Name}</h2>
